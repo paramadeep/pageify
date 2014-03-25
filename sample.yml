@@ -1,0 +1,10 @@
+login_page:
+  login: ".div"
+    password: "input.password"
+    username: "input.username"
+    forget: "div.forget"
+      password: "a.password"
+      username: "a.username"
+    submit: ".submit"
+
+    
