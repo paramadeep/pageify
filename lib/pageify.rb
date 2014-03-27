@@ -1,7 +1,5 @@
 module Pageify
-  require "pageify/page"
   require "pageify/string"
-  require "pageify/page"
   require "pageify/element"
 
   def pageify(base_dir)
@@ -14,19 +12,20 @@ module Pageify
     end
   end
 
-  def createPage(name)
-    page = Page.new(name)
-    define_method(name) do 
+  def createElement(name,selector)
+    element = Element.new(name,selector,nil)
+    define_method("_#{name}") do 
       $selector = ""
-      page
+      element
     end
-    page
+    element
   end
 
   def to_page_objects(file)
     rawArray = IO.read(file).split("\n").map{|x| x.rstrip}
     rawArray -= [""]
-    page = createPage(rawArray.shift.name)
+    parentElement = rawArray.shift
+    page = createElement(parentElement.name,parentElement.selector)
     parent = [page]
     until rawArray.empty? do
       thisElement = rawArray.first
