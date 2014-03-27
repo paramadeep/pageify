@@ -12,9 +12,9 @@ module Pageify
     end
   end
 
-  def createElement(name,selector)
-    element = Element.new(name,selector,nil)
-    define_method("_#{name}") do 
+  def createElement(raw_row)
+    element = PageObject.create(raw_row)
+    define_method(element.name) do 
       $selector = ""
       element
     end
@@ -25,15 +25,15 @@ module Pageify
     rawArray = IO.read(file).split("\n").map{|x| x.rstrip}
     rawArray -= [""]
     parentElement = rawArray.shift
-    page = createElement(parentElement.name,parentElement.selector)
+    page = createElement(parentElement)
     parent = [page]
     until rawArray.empty? do
       thisElement = rawArray.first
       nextElement = rawArray[1]
-      until parent.last.name().lspace < thisElement.lspace do 
+      until parent.last.intend < thisElement.lspace do 
         parent.pop
       end
-      element = parent.last.createChild(thisElement.name,thisElement.selector)
+      element = parent.last.createChild(thisElement)
       rawArray.shift
       parent << element if rawArray.any? &&thisElement.lspace < nextElement.lspace
     end
