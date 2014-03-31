@@ -1,8 +1,8 @@
 Gem::Specification.new do |s|
   s.name        = 'pageify'
-  s.version     = '0.1.1'
+  s.version     = '0.1.2'
   s.date        = '2014-04-28'
-  s.summary     = "Bug Fix"
+  s.summary     = "Added selector for the parent node"
   s.description = "Simplify page object definition for UI tests"
   s.authors     = ["Deepak"]
   s.email       = 'anandhadeepak@gmail.com'

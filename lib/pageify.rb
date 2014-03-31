@@ -15,7 +15,7 @@ module Pageify
   def createElement(raw_row)
     element = PageObject.create(raw_row)
     define_method(element.name) do 
-      $selector = ""
+      $selector = element.selector
       element
     end
     element
