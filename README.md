@@ -1,8 +1,9 @@
 #Pageify
 
 Lets you define page objects for your UI tests, written in Ruby. 
- 
+
 ##Example
+
 Page definition looks like this
 ```yaml
 home_page: ".home"
@@ -26,10 +27,20 @@ hoem_pafe.settings.should be_visible
     
 ## Key benefits
 
-- Your test becomes more **readable**.
+- Your test will be more **readable**.
 - **Eliminates duplicate** definition of selectors across test.
 - **Easy Maintenance**.
 
+## Usage
+In your project Gemfile add 
+```ruby
+gem 'pageify'
+```
+###Cucumber
+ In env.rb
+ ```ruby
+ include Pageify
+ pageify("features/pages")
+ ```
+ Place all the page defenitions under "features/pages"
 
-
- 
