@@ -5,16 +5,14 @@ module Pageify
   def pageify(base_dir)
     base_dir.chomp! '/'
     all_pages = []
-    Dir["#{base_dir}/**/"].each do |dir|
-      Dir["#{dir}*.page"].each do |file|
-        to_page_objects file
-      end
+    Dir["#{base_dir}/**/*.page"].each do |file|
+      to_page_objects file
     end
   end
 
   def createElement(raw_row)
     element = PageObject.create(raw_row)
-    define_method(element.name) do 
+    define_method(element.name) do
       $selector = element.selector
       element
     end
@@ -30,7 +28,7 @@ module Pageify
     until rawArray.empty? do
       thisElement = rawArray.first
       nextElement = rawArray[1]
-      until parent.last.intend < thisElement.lspace do 
+      until parent.last.intend < thisElement.lspace do
         parent.pop
       end
       element = parent.last.createChild(thisElement)
