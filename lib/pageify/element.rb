@@ -1,4 +1,4 @@
-class PageObject 
+class PageObject
   attr_accessor :name,:parent,:selector,:intend
 
   def createChild (raw_row)
