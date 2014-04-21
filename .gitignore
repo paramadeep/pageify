@@ -1,2 +1,71 @@
+# Created by http://www.gitignore.io
+
+### OSX ###
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows ###
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+
+### Linux ###
+*~
+.directory
+
+### Ruby ###
 *.gem
+*.rbc
+/.config
+/coverage/
+/InstalledFiles
+/pkg/
+/spec/reports/
+/test/tmp/
+/test/version_tmp/
+/tmp/
+.dat*
+.repl_history
+build/
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+/.bundle/
+/lib/bundler/man/
+Gemfile.lock
+.ruby-version
+.ruby-gemset
+.rvmrc
+
+### RubyMine ###
+# Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
+.idea/
+*.ipr
+*.iws
+*.iml
+out/
+.idea_modules/
+atlassian-ide-plugin.xml
+com_crashlytics_export_strings.xml
+
+# CUSTOM Ignores
+
 *.swp
