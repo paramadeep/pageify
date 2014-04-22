@@ -6,7 +6,11 @@ class PageObject
     child.parent = self
     define_singleton_method(child.name) do |*arguments|
       child_selector = (child.selector % arguments).strip_quotes.strip
-      $selector += " " + child_selector
+      if child_selector.start_with? "&"
+        $selector += child_selector.gsub(/^&/, "")
+      else
+        $selector += " " + child_selector
+      end
       child
     end
     return child

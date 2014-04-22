@@ -41,4 +41,8 @@ describe Pageify do
     @page.root.complex.whitespace.p.should == ".root .complex .whitespace"
     @page.root.complex.whitespace.whitespace_nested.p.should == ".root .complex .whitespace .whitespace_nested"
   end
+
+  it "& should add to previous selector" do
+    @page.root.complex.nth(1).nth_variant.nth_nested.p.should == ".root .complex:nth-of-type(1).nth_variant .nth_nested"
+  end
 end
