@@ -1,11 +1,16 @@
-class PageObject 
+class PageObject
   attr_accessor :name,:parent,:selector,:intend
 
   def createChild (raw_row)
     child = PageObject.create(raw_row)
     child.parent = self
     define_singleton_method(child.name) do |*arguments|
-      $selector += child.selector % arguments
+      child_selector = (child.selector % arguments).strip_quotes.strip
+      if child_selector.start_with? "&"
+        $selector += child_selector.gsub(/^&/, "")
+      else
+        $selector += " " + child_selector
+      end
       child
     end
     return child
@@ -19,7 +24,7 @@ class PageObject
   end
 
   def p
-    $selector.gsub("\"","").strip
+    $selector.strip
   end
 
   def initialize (name,selector,intend)

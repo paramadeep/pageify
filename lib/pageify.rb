@@ -13,7 +13,7 @@ module Pageify
   def createElement(raw_row)
     element = PageObject.create(raw_row)
     define_method(element.name) do
-      $selector = element.selector
+      $selector = element.selector.strip_quotes.strip
       element
     end
     element
