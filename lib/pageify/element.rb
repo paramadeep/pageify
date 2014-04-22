@@ -5,7 +5,8 @@ class PageObject
     child = PageObject.create(raw_row)
     child.parent = self
     define_singleton_method(child.name) do |*arguments|
-      $selector += child.selector % arguments
+      child_selector = (child.selector % arguments).strip_quotes.strip
+      $selector += " " + child_selector
       child
     end
     return child
@@ -19,7 +20,7 @@ class PageObject
   end
 
   def p
-    $selector.gsub("\"","").strip
+    $selector.strip
   end
 
   def initialize (name,selector,intend)

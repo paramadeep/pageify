@@ -29,11 +29,16 @@ describe Pageify do
     @page.root.complex.arg(1).arg_nested.p.should == ".root .complex .arg:nth-of-type(1) .arg_nested"
   end
 
-  it "should correctly resolve multiple pages" do
+  it "does not support multiple pages at the same time" do
     p1 = @page.root.simple
     p2 = @page.root.complex.nested
 
-    p1.p.should == ".root .simple"
+    p1.p.should == ".root .complex .nested"
     p2.p.should == ".root .complex .nested"
+  end
+
+  it "should normalize whitespace" do
+    @page.root.complex.whitespace.p.should == ".root .complex .whitespace"
+    @page.root.complex.whitespace.whitespace_nested.p.should == ".root .complex .whitespace .whitespace_nested"
   end
 end
