@@ -1,6 +1,6 @@
 #Pageify
 
-[![Code Climate](https://codeclimate.com/github/paramadeep/pageify.png)](https://codeclimate.com/github/paramadeep/pageify)    [![Dependency Status](https://gemnasium.com/paramadeep/pageify.svg)](https://gemnasium.com/paramadeep/pageify)
+[![Code Climate](https://codeclimate.com/github/paramadeep/pageify.png)](https://codeclimate.com/github/paramadeep/pageify)    [![Dependency Status](https://gemnasium.com/paramadeep/pageify.svg)](https://gemnasium.com/paramadeep/pageify)  [![Build Status](https://travis-ci.org/paramadeep/pageify.svg?branch=master)](https://travis-ci.org/paramadeep/pageify)
 
 Lets you define page objects for your UI tests, written in Ruby. 
 
