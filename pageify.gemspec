@@ -5,7 +5,6 @@ Gem::Specification.new do |s|
   s.summary     = 'Simplify page object definition for UI tests'
   s.description = "Simplify page object definition for UI tests"
   s.authors     = ["Deepak"]
-  s.email       = 'anandhadeepak@gmail.com'
   s.files       = Dir['README.md', 'lib/**/*']
   s.test_files  = Dir['spec/**/*']
   s.homepage    = 'https://github.com/paramadeep/pageify'
