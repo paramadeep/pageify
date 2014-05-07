@@ -41,6 +41,7 @@ gem 'pageify'
 ###Cucumber
  In env.rb
  ```ruby
+ require 'pageify'
  include Pageify
  pageify("features/pages")
  ```
