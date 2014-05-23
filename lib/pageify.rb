@@ -5,7 +5,7 @@ module Pageify
   def pageify(base_dir)
     base_dir.chomp! '/'
     all_pages = []
-    Dir["#{base_dir}/**/*.page"].each do |file|
+    Dir["#{base_dir}/**/*.yml"].each do |file|
       to_page_objects file
     end
   end

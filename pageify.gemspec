@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'pageify'
-  s.version     = '0.2.0'
-  s.date        = '2014-04-29'
+  s.version     = '0.2.1'
+  s.date        = '2014-05-23'
   s.summary     = 'Simplify page object definition for UI tests'
   s.description = "Simplify page object definition for UI tests"
   s.authors     = ["Deepak"]
@@ -12,4 +12,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rspec', '>=2.10.0'
   s.add_development_dependency 'rake'
+
 end
