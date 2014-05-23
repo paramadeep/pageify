@@ -19,13 +19,26 @@ home_page: ".home"
 ```
 Test steps looks like this
 ```ruby
-fill_in home_page.login.user_name :with => "hi"
-fill_in home_page.login.password :with => "bla"
-click_on home_page.login.submit
+home_page.login.user_name[].set "hi"
+home_page.login.password[].set "bla"
+home_page.login.submit[].click
 
-home_page.profile_name.should match_text "hi"
-hoem_pafe.settings.should be_visible
+home_page.profile_name[].should match_text "hi"
+hoem_page.settings[].should be_visible
 ```
+
+We will be able element whose locators are dynamic
+```yaml
+products_page: ".products"
+  product: ".product[name='%s']"
+    details_row: ".row:nth-of-type(%s)"
+      cost: ".cost"
+```
+```ruby
+products_page.product("candy").details_row(1).cost[].should have_text "Rs.10"
+products_page.product("tyres").details_row(2).cost[].should have_text "Rs.20"
+```
+
     
 ## Key benefits
 
@@ -42,8 +55,40 @@ gem 'pageify'
  In env.rb
  ```ruby
  require 'pageify'
+ require 'pageify/capybara'
  include Pageify
+ 
  pageify("features/pages")
  ```
  Place all the page defenitions under "features/pages"
+
+##Methods
+
+###Get Element '[]'
+```ruby
+home_page.login.user_name[] #=> user_name text box
+home_page.login.user_name[].set "hi" # set text box value
+home_page.login.user_name[].should have_value "hi" # assert value
+home_page.login.submit[].click
+```
+
+
+###Get Selector 'p'
+At times we would need selector of the object 
+```ruby
+home_page.login.user_name.p #=> ".home div.login input.user"
+
+#check element doesn't exist
+page.should_not have_selector home_page.login.user_name.p
+
+#using capybara actions
+fill_in  home_page.login.user_name.p, :with=> "hi"
+click_on home_page.login.submit.p
+```
+
+###
+
+
+
+
 
