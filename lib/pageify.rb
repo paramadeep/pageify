@@ -1,6 +1,6 @@
 module Pageify
   require "pageify/string"
-  require "pageify/element"
+  require "pageify/page_object"
 
   def pageify(base_dir)
     base_dir.chomp! '/'
