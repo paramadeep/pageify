@@ -45,4 +45,12 @@ describe Pageify do
   it "& should add to previous selector" do
     @page.root.complex.nth(1).nth_variant.nth_nested.p.should == ".root .complex:nth-of-type(1).nth_variant .nth_nested"
   end
+
+  it "should access sections mentioned" do
+    @page.root.complex.nth(1).details.name("seera").initial.letter.p.should == ".root .complex:nth-of-type(1) .first_section .name[name=seera] .initial #let"
+  end
+
+  it "should not scan sections as page objects" do
+  end
+
 end

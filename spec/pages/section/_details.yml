@@ -1,0 +1,4 @@
+details: ".first_section"
+  name: ".name[name=%s]"
+    :initial
+      letter: "#let"

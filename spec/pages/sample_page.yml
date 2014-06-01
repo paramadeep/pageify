@@ -9,3 +9,4 @@ root: ".root"
     nth: "&:nth-of-type(%d)"
       nth_variant: "&.nth_variant"
         nth_nested: ".nth_nested"
+      :section/details
