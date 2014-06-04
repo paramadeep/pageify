@@ -86,9 +86,23 @@ fill_in  home_page.login.user_name.p, :with=> "hi"
 click_on home_page.login.submit.p
 ```
 
-###
+##Splitting Long Page Definitions
+Sometimes, your page definition may get quite long. In other cases, you may also have the exact same HTML component (say a product listing) that can be repeated in multiple places (e.g. list, search, etc). In these cases, you can use sections to split your page into multiple files that can be reused.
 
+The syntax for this is as follows:
 
+```yaml
+# sections/_product.yml
+product: '.product'
+  name: '.name'
+  price: '.price'
 
+# product_list.yml
+product_list: '.product_list'
+  :section/product
 
+# search_results.yml
+search_results: '.search_results'
+  :section/product
 
+```
