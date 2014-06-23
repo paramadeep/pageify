@@ -12,7 +12,11 @@ describe Pageify do
     @page.root.p.should == ".root"
   end
 
-  it "should have simple page" do
+  it "should heck for root params" do
+    @page.root("#id").simple.p.should == ".root #id .simple"
+  end
+
+ it "should have simple page" do
     @page.root.simple.p.should == ".root .simple"
   end
 

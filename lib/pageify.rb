@@ -12,8 +12,12 @@ module Pageify
 
   def createElement(raw_row)
     element = PageObject.create(raw_row)
-    define_method(element.name) do
-      $selector = element.selector.strip_quotes.strip
+    define_method(element.name) do |*arguments|
+      unless arguments.eql? []
+        $selector = (element.selector % arguments).strip_quotes.strip
+      else
+        $selector = (element.selector % '').strip_quotes.strip
+      end
       element
     end
     element
