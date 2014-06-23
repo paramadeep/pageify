@@ -25,6 +25,10 @@ describe Pageify do
     @page.root.complex.arg(1).p.should == ".root .complex .arg:nth-of-type(1)"
   end
 
+  it "should ignore arguments if not present" do
+    @page.root.complex.arg.p.should == ".root .complex .arg:nth-of-type()"
+  end
+
   it "should check pages nested inside arguments" do
     @page.root.complex.arg(1).arg_nested.p.should == ".root .complex .arg:nth-of-type(1) .arg_nested"
   end

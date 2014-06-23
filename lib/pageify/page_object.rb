@@ -5,7 +5,11 @@ class PageObject
     child = PageObject.create(raw_row)
     child.parent = self
     define_singleton_method(child.name) do |*arguments|
-      child_selector = (child.selector % arguments).strip_quotes.strip
+      unless arguments.eql? []
+        child_selector = (child.selector % arguments).strip_quotes.strip
+      else
+        child_selector = (child.selector % '').strip_quotes.strip
+      end
       if child_selector.start_with? "&"
         $selector += child_selector.gsub(/^&/, "")
       else
