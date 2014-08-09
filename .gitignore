@@ -69,3 +69,5 @@ com_crashlytics_export_strings.xml
 # CUSTOM Ignores
 
 *.swp
+
+tags

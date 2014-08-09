@@ -27,7 +27,7 @@ class PageObject
     PageObject.new(name,selector,intend)
   end
 
-  def p
+  def current_selector
     $selector.strip
   end
 
