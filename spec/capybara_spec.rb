@@ -20,4 +20,13 @@ describe Capybara do
     expect(@page.root.simple.set('something'))
     expect(@page.root.simple.click)
   end
+
+  it "should select the element collection in the page" do
+    mock_selected = ['mock selected','test']
+    expect(@page.root.simple).to receive(:page).and_return(@dummy_page).twice
+    expect(@dummy_page).to receive(:find_all).with('.root .simple').and_return(mock_selected).twice
+    expect(@page.root.simple[0]).to eq(mock_selected[0])
+    expect(@page.root.simple.all).to eq(mock_selected)
+  end
+
 end
