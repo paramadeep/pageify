@@ -13,8 +13,11 @@ describe Capybara do
 
   it "should select the element in the page" do
     mock_selected = double('mock selected')
-    expect(@page.root.simple).to receive(:page).and_return(@dummy_page)
-    expect(@dummy_page).to receive(:find).with('.root .simple').and_return(mock_selected)
-    expect(@page.root.simple[]).to eq(mock_selected)
+    expect(@page.root.simple).to receive(:page).and_return(@dummy_page).twice
+    expect(@dummy_page).to receive(:find).with('.root .simple').and_return(mock_selected).twice
+    expect(mock_selected).to receive(:set).with('something')
+    expect(mock_selected).to receive(:click)
+    expect(@page.root.simple.set('something'))
+    expect(@page.root.simple.click)
   end
 end
