@@ -42,7 +42,7 @@ products_page.product("tyres").details_row(2).cost.f.should have_text "Rs.20"
     
 ## Key benefits
 
-- [Tests runs tremendously fast.] (## How tests gets faster with Pageify)
+- [Tests runs tremendously fast.] (https://github.com/paramadeep/pageify#how-tests-gets-faster-with-pageify)
 - Your test will be more **readable**.
 - **Eliminates duplicate** definition of selectors across test.
 - **Easy Maintenance**.
