@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'pageify'
-  s.version     = '0.4.0'
+  s.version     = '0.4.1'
   s.date        = '2014-08-10'
   s.summary     = 'Simplify page object definition for UI tests'
   s.description = "Simplify page object definition for UI tests"
@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'capybara','2.4.1'
   s.add_development_dependency 'pry','0.10.0'
   s.add_development_dependency 'rubygems-tasks', '0.2.4'
+  s.add_development_dependency 'simplecov', '0.9.0'
 end

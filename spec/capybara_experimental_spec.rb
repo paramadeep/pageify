@@ -1,5 +1,5 @@
 require 'capybara/dsl'
-require "pageify/capybara"
+require "pageify/capybara_experimental"
 require 'spec_helper'
 
 describe Capybara do
@@ -13,12 +13,12 @@ describe Capybara do
 
   it "should select the element in the page" do
     mock_selected = double('mock selected')
-    expect(@page.root.simple).to receive(:page).and_return(@dummy_page).exactly(3).times
+    expect(@page.root.simple).to receive(:page).and_return(@dummy_page).twice
     expect(@dummy_page).to receive(:find).with('.root .simple').and_return(mock_selected).twice
-    expect(@dummy_page).to receive(:all).with('.root .simple').and_return(mock_selected).once
-    expect(@page.root.simple.find)
-    expect(@page.root.simple.f)
-    expect(@page.root.simple.find_all)
+    expect(mock_selected).to receive(:set).with('something')
+    expect(mock_selected).to receive(:click)
+    expect(@page.root.simple.set('something'))
+    expect(@page.root.simple.click)
   end
 
 end

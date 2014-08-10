@@ -1,16 +1,15 @@
 class PageObject
   include Capybara::DSL
 
-  def method_missing(mtd_name, *args)
-    page_element = page.find(self.current_selector)
-    args.empty? ? page_element.send(mtd_name) : page_element.send(mtd_name, *args)
+  def find()
+    page.find(self.selector)
   end
 
-  def [](index)
-    all()[index]
+  def f()
+    self.find
   end
 
-  def all()
-    page.find_all(self.current_selector)
+  def find_all()
+    page.all(self.selector)
   end
 end

@@ -1,19 +1,19 @@
 class PageObject
-  attr_accessor :name,:parent,:selector,:intend
+  attr_accessor :name,:parent,:self_selector,:intend
 
   def createChild (raw_row)
     child = PageObject.create(raw_row)
     child.parent = self
     define_singleton_method(child.name) do |*arguments|
       unless arguments.eql? []
-        child_selector = (child.selector % arguments).strip_quotes.strip
+        child_selector = (child.self_selector % arguments).strip_quotes.strip
       else
-        child_selector = (child.selector % '').strip_quotes.strip
+        child_selector = (child.self_selector % '').strip_quotes.strip
       end
       if child_selector.start_with? "&"
-        $selector += child_selector.gsub(/^&/, "")
+        $global_selector += child_selector.gsub(/^&/, "")
       else
-        $selector += " " + child_selector
+        $global_selector += " " + child_selector
       end
       child
     end
@@ -22,18 +22,18 @@ class PageObject
 
   def self.create (raw_row)
     name = raw_row.lstrip.split(":").first
-    selector = raw_row.slice(raw_row.index(':')+1..-1)
+    self_selector = raw_row.slice(raw_row.index(':')+1..-1)
     intend = raw_row.lspace
-    PageObject.new(name,selector,intend)
+    PageObject.new(name,self_selector,intend)
   end
 
-  def current_selector
-    $selector.strip
+  def selector
+    $global_selector.strip
   end
 
-  def initialize (name,selector,intend)
+  def initialize (name,self_selector,intend)
     @name = name
-    @selector = selector
+    @self_selector = self_selector
     @intend = intend
   end
 
