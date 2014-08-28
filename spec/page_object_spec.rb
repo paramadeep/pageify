@@ -37,11 +37,11 @@ describe Pageify do
     expect(@page.root.complex.arg(1).arg_nested.selector).to eq(".root .complex .arg:nth-of-type(1) .arg_nested")
   end
 
-  it "does not support multiple pages at the same time" do
+  it "support multiple pages at the same time" do
     p1 = @page.root.simple
     p2 = @page.root.complex.nested
 
-    expect(p1.selector).to eq(".root .complex .nested")
+    expect(p1.selector).to eq(".root .simple")
     expect(p2.selector).to eq(".root .complex .nested")
   end
 

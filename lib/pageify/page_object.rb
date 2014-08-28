@@ -1,5 +1,5 @@
 class PageObject
-  attr_accessor :name,:parent,:self_selector,:intend
+  attr_accessor :name,:parent,:self_selector,:intend,:full_selector
 
   def createChild (raw_row)
     child = PageObject.create(raw_row)
@@ -11,9 +11,9 @@ class PageObject
         child_selector = (child.self_selector % '').strip_quotes.strip
       end
       if child_selector.start_with? "&"
-        $global_selector += child_selector.gsub(/^&/, "")
+        child.full_selector = @full_selector + child_selector.gsub(/^&/, "")
       else
-        $global_selector += " " + child_selector
+        child.full_selector = @full_selector + " " + child_selector
       end
       child
     end
@@ -28,7 +28,7 @@ class PageObject
   end
 
   def selector
-    $global_selector.strip
+    @full_selector.strip
   end
 
   def initialize (name,self_selector,intend)

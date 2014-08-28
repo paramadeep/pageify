@@ -14,9 +14,9 @@ module Pageify
     element = PageObject.create(raw_row)
     define_method(element.name) do |*arguments|
       unless arguments.eql? []
-        $global_selector = (element.self_selector % arguments).strip_quotes.strip
+        element.full_selector = (element.self_selector % arguments).strip_quotes.strip
       else
-        $global_selector = (element.self_selector % '').strip_quotes.strip
+        element.full_selector = (element.self_selector % '').strip_quotes.strip
       end
       element
     end
