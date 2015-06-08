@@ -1,6 +1,8 @@
 module Pageify
   require "pageify/string"
   require "pageify/page_object"
+  require "pageify/assertions"
+  require "pageify/page_object_ext"
 
   def pageify(base_dir)
     base_dir.chomp! '/'
@@ -64,3 +66,4 @@ module Pageify
     end
   end
 end
+include Pageify

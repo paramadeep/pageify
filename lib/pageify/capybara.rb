@@ -1,15 +1,20 @@
 class PageObject
   include Capybara::DSL
 
-  def find()
-    page.find(self.selector)
+  def find(*args)
+    page.find(selector,*args)
   end
 
-  def f()
-    self.find
+  def all(*args)
+    page.all(selector,*args)
   end
 
-  def find_all()
-    page.all(self.selector)
+  def with_text(text)
+    page.find(selector,:text=>text)
   end
+
+  def present?
+    page.has_css? selector
+  end
+
 end
