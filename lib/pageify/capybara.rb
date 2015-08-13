@@ -9,6 +9,10 @@ class PageObject
     page.all(selector,*args)
   end
 
+  def first(*args)
+    page.first(selector,*args)
+  end
+
   def with_text(text)
     page.find(selector,:text=>text)
   end
