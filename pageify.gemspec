@@ -10,9 +10,9 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/paramadeep/pageify'
   s.license     = 'MIT'
 
-  s.add_development_dependency 'rspec', '3.0.0'
+  s.add_development_dependency 'rspec', '3.3.0'
   s.add_development_dependency 'rake','10.3.2'
-  s.add_development_dependency 'capybara','2.4.1'
+  s.add_development_dependency 'capybara','2.5.0'
   s.add_development_dependency 'pry','0.10.0'
   s.add_development_dependency 'rubygems-tasks', '0.2.4'
   s.add_development_dependency 'simplecov', '0.9.0'

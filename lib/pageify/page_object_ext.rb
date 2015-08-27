@@ -1,3 +1,6 @@
+require "capybara"
+require "capybara/rspec"
+
 class PageObject
   include Capybara::DSL
   include Assertions
