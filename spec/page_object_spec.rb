@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 describe Pageify do
   before :each do
     base_dir = File.expand_path File.join __FILE__, '..', 'pages'
@@ -59,5 +57,6 @@ describe Pageify do
   end
 
   it "should not scan sections as page objects" do
+    expect(@page.methods).not_to include(:details)
   end
 end
