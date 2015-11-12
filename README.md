@@ -24,7 +24,7 @@ profile_page:
 Test steps looks like this
 ```ruby
 # set textbox, radiobox, checkbox in one shot  
-sign_up.should_match_fields {:user_name=> "hi",:password=>'bla',:male=>true,:age=>10}
+sign_up.set_fields {:user_name=> "hi",:password=>'bla',:male=>true,:age=>10}
 sign_up.submit.click
 # assert multiple fields
 profile_page.should_match_fields {:user_name=> "hi",:password=>'bla',:male=>true,:age=>10}
