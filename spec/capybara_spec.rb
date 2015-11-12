@@ -19,4 +19,22 @@ describe Pageify do
     set_session(session) 
     expect(@test_page.root.value).to equal(10) 
   end
+
+  it "should support capybara rspec matchers" do 
+    session = instance_double("Capybara::Session")
+    capybara_element = instance_double("Capybara::Node::Element")
+    allow(session).to receive(:find).with(".root").and_return(capybara_element)
+    allow(capybara_element).to receive(:has_text?).with("true").and_return(true)
+    set_session(session) 
+    @test_page.root.should have_text "true"
+  end
+
+  it "should support pageify capybara rspec matchers" do 
+    session = instance_double("Capybara::Session")
+    capybara_element = instance_double("Capybara::Node::Element")
+    allow(session).to receive(:find).with(".root").and_return(capybara_element)
+    allow(capybara_element).to receive(:has_text?).with("true").and_return(true)
+    set_session(session) 
+    @test_page.root.should have_text "true"
+  end
 end
