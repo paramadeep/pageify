@@ -8,6 +8,7 @@ Simplest way to define page objects. Bonus, tremendously fast tests.
 
 Page definition looks like this
 ```yaml
+# sign_up_page.yml 
 sign_up: ".home"
     user_name: ".user"
     password: ".password"
@@ -15,6 +16,7 @@ sign_up: ".home"
     male: "radio.male"
     female: "radio.female"
     submit: "[name='submit']"
+# profile_page.yml 
 profile_page:
     user_name: ".user"
     password: ".password"
@@ -28,6 +30,9 @@ sign_up.set_fields {:user_name=> "hi",:password=>"bla",:male=>true,:age=>10}
 sign_up.submit.click
 # assert multiple fields
 profile_page.should_match_fields {:user_name=> "hi",:male=>true,:age=>10}
+# check for state of elements
+sign_up.should_have_enabled ['user_name','password','male','age']
+sign_up.should_have_disabled ['user_name']
 ```
 or like this 
 ```ruby

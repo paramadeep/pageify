@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'pageify'
-  s.version     = '0.5.0'
+  s.version     = '0.5.1'
   s.date        = '2015-10-31'
   s.summary     = 'Simplify page object definition for UI tests'
   s.description = "Simplify page object definition for UI tests"

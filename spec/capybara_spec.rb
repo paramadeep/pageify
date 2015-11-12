@@ -1,4 +1,4 @@
-require 'pageify/capybara/base'
+require 'pageify/capybara'
 describe Pageify do
   before :each do
     base_dir = File.expand_path File.join __FILE__, '..', 'pages'
