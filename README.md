@@ -8,23 +8,26 @@ Simplest way to define page objects. Bonus, tremendously fast tests.
 
 Page definition looks like this
 ```yaml
-home_page: ".home"
-  login: "div.login"
-    user_name: "input.user"
-    password: "input.password"
+sign_up: ".home"
+    user_name: ".user"
+    password: ".password"
+    age: ".age"
+    male: "radio.male"
+    female: "radio.female"
     submit: "[name='submit']"
-  profile_name: "a.profile"
-  settings: "a.settings"
-  sign_up: "a.sign_up"
+profile_page:
+    user_name: ".user"
+    password: ".password"
+    age: ".age"
+    gender: ".gender"
 ```
 Test steps looks like this
 ```ruby
-home_page.login.user_name.f.set "hi"
-home_page.login.password.f.set "bla"
-home_page.login.submit.f.click
-
-home_page.profile_name.f.should match_text "hi"
-hoem_page.settings.f.should be_visible
+# set textbox, radiobox, checkbox in one shot  
+sign_up.should_match_fields {:user_name=> "hi",:password=>'bla',:male=>true,:age=>10}
+sign_up.submit.click
+# assert multiple fields
+profile_page.should_match_fields {:user_name=> "hi",:password=>'bla',:male=>true,:age=>10}
 ```
 
 We will be able element whose locators are dynamic
