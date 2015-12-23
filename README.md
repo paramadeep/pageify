@@ -77,7 +77,7 @@ gem 'pageify'
  pageify("features/pages")
  set_session(page)
 ```
- Place all the page defenitions under "features/pages"
+ Place all the page definitions under "features/pages"
 
 ## Splitting long page definitions
 Sometimes, your page definition may get quite long. In other cases, you may also have the exact same HTML component (say a product listing) that can be repeated in multiple places (e.g. list, search, etc). In these cases, you can use sections to split your page into multiple files that can be reused.
