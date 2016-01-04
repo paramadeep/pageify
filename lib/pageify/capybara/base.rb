@@ -15,7 +15,7 @@ module Pageify
       get_session.find(selector,*args)
     end
 
-    node_methods = Capybara::Node::Element.instance_methods - Object.methods - instance_methods
+    node_methods = Capybara::Node::Element.instance_methods - Object.methods - instance_methods - [:click_on]
     (node_methods).each do |node_method| 
       define_method (node_method)  do |*arguments|
         self.find.send(node_method,*arguments)

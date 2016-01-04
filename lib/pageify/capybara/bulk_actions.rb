@@ -1,6 +1,6 @@
 require "capybara/rspec"
 module Pageify
-  module BulkActions
+  class  PageObject
 
     def should_match_fields fields
       if fields.is_a?(Hash)

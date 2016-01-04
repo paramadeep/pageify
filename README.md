@@ -72,6 +72,8 @@ gem 'pageify'
  require 'capybara/session'
  require 'selenium-webdriver'
 
+ include Capybara::DSL
+
  #define your capybara driver ... and 
 
  pageify("features/pages")
